@@ -13,8 +13,27 @@ $lista = Usuario::search("ckh");
 echo json_encode($lista);
 
 // carrega um usuário usando o login e a senha
+//$usuario = new Usuario();
+//$usuario->login("eckhard","12334");
+//echo $usuario;
+
+//$aluno = new Usuario();
+
+//$aluno->setDeslogin("aluno");
+//$aluno->setDessenha("@lun0");
+
+//$aluno->insert();
+
+//echo $aluno;
+
 $usuario = new Usuario();
-$usuario->login("eckhard","12334");
+
+$usuario->loadById(8);
+
+echo $usuario;
+
+$usuario->update("chaves","qureipqeo");
+
 echo $usuario;
 
 
