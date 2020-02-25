@@ -162,6 +162,37 @@ class Usuario
 	}	
 
 
+	public function delete()
+	{
+		
+		echo "<br>".$this->getDeslogin()."<br>";
+		echo $this->getDessenha()."<br>";
+		echo $this->getIdusuario()."<br>";
+
+		$sql = new Sql();
+		$results = $sql->select("
+								DELETE FROM tb_usuarios
+								WHERE idusuario = :ID
+								"
+								,	array(':ID'=>$this->getIdusuario()
+										)
+								);
+
+		if (count($results)>0)
+		{
+			echo "Deletou ".count($results)." registros";
+		}
+		else {
+			echo "Não deletou";
+		}
+
+		$this->setIdusuario(0);
+		$this->setDeslogin("");
+		$this->setDessenha("");
+		$this->setDtcadastro(new DateTime());		
+	}	
+
+
 }
 
 ?>

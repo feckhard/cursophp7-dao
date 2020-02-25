@@ -9,7 +9,7 @@ require_once("config.php");
 
 // carrega uma lista de usuários
 $lista = Usuario::getList();
-$lista = Usuario::search("ckh");
+$lista = Usuario::search("");
 echo json_encode($lista);
 
 // carrega um usuário usando o login e a senha
@@ -32,7 +32,8 @@ $usuario->loadById(8);
 
 echo $usuario;
 
-$usuario->update("chaves","qureipqeo");
+//$usuario->update("chaves","qureipqeo");
+$usuario->delete();
 
 echo $usuario;
 
